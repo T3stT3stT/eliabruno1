@@ -1,19 +1,21 @@
 # eliabruno1
-H1 Apache und MySQL mit einem PHP-Login Script
+<h1> Apache und MySQL mit einem PHP-Login Script</h1>
 
-1 Projektbeschreib
+<h2>1 Projektbeschreib</h2>
 
 Im Verlaufe des Projektes soll ein Vagrantfile entstehen, welches eine Umgebung mit einem Webserver und einem SQL-Server aufbaut. Ebenfalls wird eine PHP Loginmaske erstellt, welche mit der SQL Datenbank kommuniziert. Die Eingaben müssen mit den SQL Einträgen abgeglichen werden. Bei einem korrekten Login wird der Enduser auf eine Willkommensmaske geleitet.Im Falle eines fehlgeschlagenen Logins, wird der User gebeten das Passwort erneut einzugeben.
 
-2 Planung
+<h2>2 Planung</h2>
 
 2.1 Berechtigung MySQL
+
 Damit der Apache Server auf den SQL Sever Zugreifen kann, braucht es einen Zugang. Damit keine Verwirrungen mit den Usernamen entstehen, wird der User mit den nötigen Rechten Web01 genannt. Ebenfalls soll er alle Rechte erhalten.
 
 2.2 IP Adressen
+
 Die IP Adressen sollen in dem Range 192.168.55.0-255 sein. Ich entschied mich deshalb für die IP's 192.168.55.100 (DB) und 192.168.55.101 (Webserver). Die IP sind sehr ei9nfach zum merken und vereinfachen deshalb die Verwaltung.
 
-3 Realisation
+<h2>3 Realisation</h2>
 
 3.1 Apache
 
@@ -61,10 +63,9 @@ INSERT INTO  users (email, passwort)  VALUES ("elia@bluewin.ch","12345678");
 3.2.3 Dump erstellen
 
 Damit die Datensätze der DB bei einer neuen Installation wieder vorhanden sind, wurde ein SQL-Dump erstellt. Dieser wird mit der Zeile in der inline Shell eingespielt:
-s
-udo mysql -u root -p 1234Qwer < mysqldump.dump
+sudo mysql -u root -p 1234Qwer < mysqldump.dump
 
 
-4 Fazit
+<h2>4 Fazit</h2>
 
 Das Gesamte Projekt ist leider überhaupt nicht nach Plan verlaufen. Mein Ziel war es, mit der Arbeit inner der ersten 10 Lektionen fertig zu werden. Leider machte mir mein Unwissen einen Stricht durch die Rechnung. Da ich nicht viel Erfahrung mit PHP  und sehr wenig mit SQL zu tun hatte, wurde die Aufgabe zu einer echten Herausforderung. Der Zeitrahmen wurde masslos überschritten und ich investierte gute 30 Stunden. Doch den Durchhaltewillen verlor ich nie. Mein Ziel war es mit dieser Aufgabe fertig zu werden. Das Problem am ganzen war, dass ich sehr viel Troubleshooten musste. In das Troubleshooting wurden circa 15 Stunden investiert. Was mir jedoch gefiehl, war der erwähnte Durchhaltewille und den Reiz etwas neues zu lernen. Diese zwei Dinge trieben mit an meine Grenzen. Trotz dem Stress konnte ich im Bereich PHP und SQL viel lernen. Vorallem im SQL Bereich.
