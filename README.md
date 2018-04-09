@@ -7,41 +7,43 @@ Im Verlaufe des Projektes soll ein Vagrantfile entstehen, welches eine Umgebung 
 
 <h2>2 Planung</h2>
 
-2.1 Berechtigung MySQL
+<h3>2.1 Berechtigung MySQL</h3>
 
 Damit der Apache Server auf den SQL Sever Zugreifen kann, braucht es einen Zugang. Damit keine Verwirrungen mit den Usernamen entstehen, wird der User mit den nötigen Rechten Web01 genannt. Ebenfalls soll er alle Rechte erhalten.
 
-2.2 IP Adressen
+<h3>2.2 IP Adressen</h3>
 
 Die IP Adressen sollen in dem Range 192.168.55.0-255 sein. Ich entschied mich deshalb für die IP's 192.168.55.100 (DB) und 192.168.55.101 (Webserver). Die IP sind sehr ei9nfach zum merken und vereinfachen deshalb die Verwaltung.
 
 <h2>3 Realisation</h2>
 
-3.1 Apache
+<h3>3.1 Apache</h3>
 
-3.1.1 Sicherheit
+<h4>3.1.1 Sicherheit</h4>
 
 Aus sicherheitsgründen wurde nicht der Standard-Port 8080 genutz, sondern 8990. Ebenfalls wurde die Firewall aktiviert und eine Regel erstellt, welche nur Traffic auf Port 8990 und 80 erlaubt.
 
-3.1.2 Konfiguration
+<h4>3.1.2 Konfiguration</h4>
 
 Auf dem Server wurde Apache installiert, sowie auch MySQL-Client. Mit MySQL-CLient kann sich der Server auf die Datanebank connecten.
 
-3.1.3 PHP
+<h4>3.1.3 PHP</h4>
 
 Es wurde zusätzlich ein PHP Login-Script erstellt, welches prüft, ob der User auf der DB existiert oder nicht. Falls fragen zum PHP-Script entstehen seteh ich für Fragen gerne zur verfügung.
 
 
-3.2 MySQL Datenbank
+<h3>3.2 MySQL Datenbank</h3>
 
-3.2.1 Berechtigungen setzen
+<h4>3.2.1 Berechtigungen setzen</h4>
+
 Um mit dem Apache Server auf den MySQL Server zuzugreifen, musste ich einen User erstellen. Mit diesem SQL Befehl kann der User erstellt werden und die Rechte werden zugleich gesetzt.
 
 CREATE USER 'web01'@'%' IDENTIFIED BY 'passpass';
 grant all privileges on *.* to 'web01'@'%' with grant option;
 FLUSH PRIVILEGES;
 
-3.2.2 Datanbank samt Inhalt erstellen
+<h4>3.2.2 Datanbank samt Inhalt erstellen</h4>
+
 Um die Datenbank zu erstellen, musst ich diese SQL-Transaktionen durchführen. 
 Mit CREATE Database erstellte ich eine Datenbank. Sie wurde "database1" benannt
 
@@ -60,7 +62,7 @@ CREATE TABLE `users` (
 Inhalte werden mit diesem Befehl in die Datenbank eingetragen.
 INSERT INTO  users (email, passwort)  VALUES ("elia@bluewin.ch","12345678");
 
-3.2.3 Dump erstellen
+<h4>3.2.3 Dump erstellen</h4>
 
 Damit die Datensätze der DB bei einer neuen Installation wieder vorhanden sind, wurde ein SQL-Dump erstellt. Dieser wird mit der Zeile in der inline Shell eingespielt:
 sudo mysql -u root -p 1234Qwer < mysqldump.dump
