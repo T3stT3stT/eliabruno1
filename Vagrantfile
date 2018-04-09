@@ -19,10 +19,10 @@ config.vm.define "db01" do |subconfig|
    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 1234Qwer'
    sudo apt-get install -y mysql-server
    sudo reboot
-   #sudo cd /etc/mysql/mysql.conf.d/
-   #sudo rm mysqld.cnf
-   #sudo cd /var/ 
-   #sudo mv mysqld.cnf /etc/mysql/mysql.conf.d/
+   sudo cd /etc/mysql/mysql.conf.d/
+   sudo rm mysqld.cnf
+   sudo cd /var/ 
+   sudo mv mysqld.cnf /etc/mysql/mysql.conf.d/
    sudo cd /var/folder
    sudo mysql -u root -p 1234Qwer < mysqldump.dump
    sudo reboot
